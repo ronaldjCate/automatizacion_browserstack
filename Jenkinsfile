@@ -48,7 +48,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh "mvn serenity:aggregate"
+                       // sh "mvn serenity:aggregate"
                         echo 'Ejecucion de pruebas sin errores...'
                         sh "echo ${WORKSPACE}"
                         sh "echo ${defTimestamp}"
