@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa3ea2f7-7e69-4049-82a9-fc85269000bc" name="Changes" comment="" />
+    <list default="true" id="aa3ea2f7-7e69-4049-82a9-fc85269000bc" name="Changes" comment="se agrega Jenkinsfile v5">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/browserstack-javaagent.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/browserstack-javaagent.log" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +21,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -34,6 +41,7 @@
     "BROWSERSTACK_PLUGIN_ENABLED": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/jonathanvillegas/IdeaProjects/browserstack/automatizacion_movil_browserstack/src/test/resources/com/browserstack",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
@@ -412,6 +420,64 @@
       <option name="presentableId" value="Default" />
       <updated>1742174980948</updated>
     </task>
+    <task id="LOCAL-00001" summary="primer cambio">
+      <option name="closed" value="true" />
+      <created>1742304273802</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742304273802</updated>
+    </task>
+    <task id="LOCAL-00002" summary="se agrega Jenkinsfile">
+      <option name="closed" value="true" />
+      <created>1742304553928</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742304553928</updated>
+    </task>
+    <task id="LOCAL-00003" summary="se agrega Jenkinsfile v2">
+      <option name="closed" value="true" />
+      <created>1742305638051</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742305638051</updated>
+    </task>
+    <task id="LOCAL-00004" summary="se agrega Jenkinsfile v3">
+      <option name="closed" value="true" />
+      <created>1742305697113</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742305697113</updated>
+    </task>
+    <task id="LOCAL-00005" summary="se agrega Jenkinsfile v4">
+      <option name="closed" value="true" />
+      <created>1742305910848</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742305910848</updated>
+    </task>
+    <task id="LOCAL-00006" summary="se agrega Jenkinsfile v5">
+      <option name="closed" value="true" />
+      <created>1742307765105</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742307765105</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="primer cambio" />
+    <MESSAGE value="se agrega Jenkinsfile" />
+    <MESSAGE value="se agrega Jenkinsfile v2" />
+    <MESSAGE value="se agrega Jenkinsfile v3" />
+    <MESSAGE value="se agrega Jenkinsfile v4" />
+    <MESSAGE value="se agrega Jenkinsfile v5" />
+    <option name="LAST_COMMIT_MESSAGE" value="se agrega Jenkinsfile v5" />
   </component>
 </project>
