@@ -33,7 +33,8 @@ pipeline {
                 script {
                     try {
                         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE', message: 'Test Suite had a failure') {
-                            sh "mvn test -Dcucumber.filter.tags=${ESCENARIO} -Dserenity.features='src/test/resources/features' -Dserenity.stepDefinitions='com.browserstack.stepDefinition'"
+                            //sh "mvn test -Dcucumber.filter.tags=${ESCENARIO} -Dserenity.features='src/test/resources/features' -Dserenity.stepDefinitions='com.browserstack.stepDefinition'"
+                        sh "mvn test -Dcucumber.filter.tags=\"@CASO_PRUEBA_1\" -Dserenity.features=\"src/test/resources/features\" -Dserenity.stepDefinitions=\"com.browserstack.stepDefinition\""
                         }
                     }
                     catch (ex) {
