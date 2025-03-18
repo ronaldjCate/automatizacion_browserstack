@@ -1,32 +1,70 @@
+currentBuild.displayName = "Automatizacion con browserstack" + currentBuild.number
+
+import java.text.SimpleDateFormat
+
+def defDateFormat = new SimpleDateFormat("yyyyMMddHHmm")
+def defDate = new Date()
+def defTimestamp = defDateFormat.format(defDate).toString()
+
 pipeline {
+
     agent any
 
+    environment {
+
+    }
+    tools {
+        maven 'M3'
+        jdk 'jdk8.333'
+    }
+
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '20'))
+        disableConcurrentBuilds()
+    }
+
     stages {
-        stage('Checkout') {
+
+        stage('Build') {
             steps {
-                git branch: 'main', url: 'https://github.com/ronaldjCate/automatizacion_browserstack.git'
+                sh "mvn clean"
             }
         }
 
-        stage('Run Tests') {
+        stage('Ejecutar Pruebas') {
             steps {
-                sh 'mvn clean test -Dcucumber.filter.tags=${ESCENARIO} -Dserenity.features="src/test/resources/features" -Dserenity.stepDefinitions="com.browserstack.stepDefinition"'
+                script {
+                    try {
+                        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE', message: 'Test Suite had a failure') {
+                            sh "mvn test -Dcucumber.filter.tags=${ESCENARIO} -Dserenity.features='src/test/resources/features' -Dserenity.stepDefinitions='com.browserstack.stepDefinition'"
+                        }
+                    }
+                    catch (ex) {
+                        echo 'Finalizo ejecucion con fallos...'
+                        error('Failed')
+                    }
+                }
             }
         }
 
-        stage('Archive Reports') {
+        stage('Reporte') {
             steps {
-                archiveArtifacts artifacts: 'target/site/serenity/**/*', fingerprint: true
+                script {
+                    try {
+                        sh "mvn serenity:aggregate"
+                        echo 'Ejecucion de pruebas sin errores...'
+                        sh "echo ${WORKSPACE}"
+                        sh "echo ${defTimestamp}"
+                        publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
+                        echo 'Reporte realizado con exito'
+                    }
+                    catch (ex) {
+                        echo 'Reporte realizado con Fallos'
+                        error('Failed')
+                    }
+                }
             }
         }
     }
 
-    post {
-        always {
-            junit 'target/failsafe-reports/*.xml'
-        }
-        failure {
-            echo "Las pruebas han fallado. Revisa los logs."
-        }
-    }
 }
