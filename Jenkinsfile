@@ -49,11 +49,19 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh "mvn serenity:aggregate"
+                        bat("mvn serenity:aggregate")
                         echo 'Ejecucion de pruebas sin errores...'
-                        sh "echo ${WORKSPACE}"
-                        sh "echo ${defTimestamp}"
-                        publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/surefire-reports", reportFiles: 'testng-results.xml', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
+                        bat ("echo ${WORKSPACE}")
+                        bat("echo ${defTimestamp}")
+                        publishHTML([
+                                allowMissing: true,
+                                alwaysLinkToLastBuild: true,
+                                keepAll: true,
+                                reportDir: "${WORKSPACE}/target/site/serenity",
+                                reportFiles: 'index.html',
+                                reportName: 'Evidencias de Prueba',
+                                reportTitles: 'Reporte de Pruebas'
+                        ])
                         echo 'Reporte realizado con exito'
                     }
                     catch (ex) {
