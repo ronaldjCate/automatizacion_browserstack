@@ -10,9 +10,6 @@ pipeline {
 
     agent any
 
-    environment {
-
-    }
     tools {
         maven 'M3'
         jdk 'jdk8.333'
