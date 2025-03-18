@@ -53,7 +53,7 @@ pipeline {
                         echo 'Ejecucion de pruebas sin errores...'
                         sh "echo ${WORKSPACE}"
                         sh "echo ${defTimestamp}"
-                        publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/site/serenity", reportFiles: 'index.html', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
+                        publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: "${WORKSPACE}/target/surefire-reports", reportFiles: 'testng-results.xml', reportName: 'Evidencias de Prueba', reportTitles: 'Reporte de Pruebas'])
                         echo 'Reporte realizado con exito'
                     }
                     catch (ex) {
