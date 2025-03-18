@@ -34,7 +34,7 @@ pipeline {
                     try {
                         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE', message: 'Test Suite had a failure') {
                             //sh "mvn test -Dcucumber.filter.tags=${ESCENARIO} -Dserenity.features='src/test/resources/features' -Dserenity.stepDefinitions='com.browserstack.stepDefinition'"
-                        sh "mvn test -Dcucumber.filter.tags=\"@CASO_PRUEBA_1\" -Dserenity.features=\"src/test/resources/features\" -Dserenity.stepDefinitions=\"com.browserstack.stepDefinition\""
+                        sh "mvn test -Dcucumber.filter.tags=\"@CASO_PRUEBA_1\" -Dserenity.features=\"src/test/resources/features\" -Dserenity.stepDefinitions=\"com.browserstack.stepDefinition\" -Dcucumber.plugin=pretty,json:target/cucumber/cucumber.json,html:target/cucumber-reports && cp target/site/serenity/serenity-summary.json target/resultados.json"
                         }
                     }
                     catch (ex) {
